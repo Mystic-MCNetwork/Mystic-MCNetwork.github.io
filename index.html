@@ -82,6 +82,20 @@
       max-width: 480px;
     }
 
+    .announce {
+      background: rgb(255, 255, 255);
+      backdrop-filter: blur(0px);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 8px 40px rgba(150, 120, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      text-align: center;
+      position: relative;
+      /* 适配Dark Reader的卡片背景 */
+      --darkreader-inline-bgcolor: rgba(30, 30, 40, 0.85) !important;
+      --darkreader-inline-border: 1px solid rgba(80, 80, 100, 0.5) !important;
+    }
+
     .card {
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(12px);
@@ -140,6 +154,15 @@
       color: #000000;
       margin-bottom: 0px;
       --darkreader-inline-color: #ccc !important;
+    }
+
+    .announcetext {
+      font-size: 26px;
+      color: #ff0000;
+      font-weight: bold;
+      margin-bottom: 8px;
+      /* 适配Dark Reader文字颜色 */
+      --darkreader-inline-color: #b8a8ff !important;
     }
 
     .name {
@@ -238,13 +261,17 @@
   </div>
 
   <div class="container">
+
+    <div class="announce">
+          <h1 class="announcetext">⚠ 通知 ⚠</h1>
+          <p class="desc">由于服务器在建设期间遇到了一些问题，因此我们移除了对 Minecraft BE 的支持。我们对造成的不便感到抱歉。</p>
+    </div><br>
     <div class="card">
       <img class="avatar" src="https://foruda.gitee.com/avatar/1781944589350697705/16581089_decayedzephyr_1781944589.png" alt="avatar" />
       <h1 class="name">Mystic Network</h1>
 
       <div class="tags">
-        <span class="tag">我的世界 Java 26.2</span>
-        <span class="tag">Java & 基岩版 互通</span>
+        <span class="tag">Minecraft 26.2</span>
         <span class="tag">白名单服务器</span>
       </div>
 
