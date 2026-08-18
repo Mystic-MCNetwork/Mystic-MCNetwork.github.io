@@ -1,0 +1,385 @@
+<StackPanel Margin="0,-10,0,0"
+xmlns:sys="clr-namespace:System;assembly=mscorlib"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
+    <StackPanel.Resources>
+        <!--Styles Starts-->
+        <Style x:Key="TabControlStyle" TargetType="{x:Type TabControl}">
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#FFACACAC"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabControl}">
+                        <Grid x:Name="templateRoot" ClipToBounds="True" SnapsToDevicePixels="True" KeyboardNavigation.TabNavigation="Local">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="ColumnDefinition0"/>
+                                <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
+                                <RowDefinition x:Name="RowDefinition1" Height="*"/>
+                            </Grid.RowDefinitions>
+                            <UniformGrid x:Name="HeaderPanel" Rows="1" Background="Transparent" Grid.Column="0" IsItemsHost="True" Margin="0" Grid.Row="0" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1"/>
+                            <Line X1="0" X2="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Stroke="White" StrokeThickness="0.1" VerticalAlignment="Bottom" Margin="0 0 0 1" SnapsToDevicePixels="True"/>
+                            <Border x:Name="ContentPanel" BorderBrush="{DynamicResource ColorBrush2}" BorderThickness="0" Background="Transparent" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local" CornerRadius="7">
+                                <ContentPresenter x:Name="PART_SelectedContentHost" ContentTemplate="{TemplateBinding SelectedContentTemplate}" Content="{TemplateBinding SelectedContent}" ContentStringFormat="{TemplateBinding SelectedContentStringFormat}" ContentSource="SelectedContent" Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="TabStripPlacement" Value="Bottom">
+                                <Setter Property="Grid.Row" TargetName="HeaderPanel" Value="1"/>
+                                <Setter Property="Grid.Row" TargetName="ContentPanel" Value="0"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="Auto"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Left">
+                                <Setter Property="Grid.Row" TargetName="HeaderPanel" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="ContentPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="HeaderPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="ContentPanel" Value="1"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition0" Value="Auto"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition1" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                            </Trigger>
+                            <Trigger Property="TabStripPlacement" Value="Right">
+                                <Setter Property="Grid.Row" TargetName="HeaderPanel" Value="0"/>
+                                <Setter Property="Grid.Row" TargetName="ContentPanel" Value="0"/>
+                                <Setter Property="Grid.Column" TargetName="HeaderPanel" Value="1"/>
+                                <Setter Property="Grid.Column" TargetName="ContentPanel" Value="0"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition0" Value="*"/>
+                                <Setter Property="Width" TargetName="ColumnDefinition1" Value="Auto"/>
+                                <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
+                                <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TabItemStyle" TargetType="{x:Type TabItem}">
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush1}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#fff"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid x:Name="templateRoot"  SnapsToDevicePixels="True" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="ContentPanel" BorderBrush="{DynamicResource ColorBrush2}" BorderThickness="0,0,0,2" Background="{DynamicResource ColorBrushTransparentBackground}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained"
+                        Grid.Row="0" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local" CornerRadius="7" Height="30" Margin="2,0,2,0"/>
+                            <TextBlock x:Name="txt" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Text="{TemplateBinding Header}" ToolTip="{TemplateBinding Header}" Foreground="{TemplateBinding Foreground}" TextTrimming="CharacterEllipsis"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Foreground" TargetName="txt" Value="{DynamicResource ColorBrush3}"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Opacity" TargetName="templateRoot" Value="0.56"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Opacity" TargetName="templateRoot" Value="0.56"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Opacity" TargetName="templateRoot" Value="0.56"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Opacity" TargetName="templateRoot" Value="0.56"/>
+                            </MultiDataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                <Setter Property="Foreground" TargetName="txt" Value="{DynamicResource ColorBrush2}"/>
+                            </MultiDataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="FlowDocumentScrollViewer">
+            <Setter Property="IsSelectionEnabled" Value="False"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        <Style TargetType="FlowDocument" >
+            <Setter Property="FontFamily" Value="Microsoft YaHei UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="StackPanel" x:Key="ContentStack" >
+            <Setter Property="Margin" Value="20,20,20,20"/>
+        </Style>
+        <Style TargetType="local:MyCard" x:Key="Card" >
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+        <Style TargetType="Image" x:Key="InnerImage" >
+            <Setter Property="MaxHeight" Value="500"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBlock" >
+            <!-- <Setter Property="TextWrapping" Value="Wrap"/> -->
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush1}"/>
+        </Style>
+        <Style TargetType="List" >
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush3}"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="MarkerStyle" Value="1"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <Style TargetType="ListItem" >
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush1}"/>
+            <Setter Property="LineHeight" Value="22"/>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="H1" >
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Margin" Value="0,10,0,10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush3}"/>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="H2" >
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Margin" Value="0,10,0,5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush3}"/>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="H3" >
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush4}"/>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="H5" >
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="0,3,0,5"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush4}"/>
+        </Style>
+        <Style TargetType="Paragraph" x:Key="H7" >
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,2,0,2"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush4}"/>
+        </Style>
+        <Style TargetType="Border" x:Key="Quote" >
+            <Setter Property="BorderThickness" Value="5,0,0,0"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorBrush4}"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+        <Style x:Key="imgTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#FF777777" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,0,0,15" />
+        </Style>
+        <Style TargetType="Border" x:Key="HeadImageBorder" >
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorBrush3}"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="MaxHeight" Value="140"/>
+        </Style>
+        <Style TargetType="Border" x:Key="TitleBorder" >
+            <Setter Property="Margin" Value="0,-20,-1,10"/>
+            <Setter Property="Background" Value="{DynamicResource ColorBrush3}"/>
+            <Setter Property="Width" Value="170"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorBrush2}"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TitleBlock" >
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{DynamicResource ColorBrush7}"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+    </StackPanel.Resources>
+    <local:MyHint Margin="0,0,0,6" Theme="Blue" Text="👋 欢迎使用 Mystic Client！" />
+    <TabControl Style="{StaticResource TabControlStyle}" FontFamily="Microsoft YaHei UI" FontSize="17">
+        <TabItem Header="公告" Style="{StaticResource TabItemStyle}">
+            <StackPanel>
+
+<local:MyCard Title="[置顶] 公告 2026/6/20" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="0,5,20,5"
+                    Text="Mystic Network 开服啦! " />
+        <TextBlock TextWrapping="Wrap" Margin="25,5,20,0"
+                    Text="服务器地址如下：" />
+        <TextBlock TextWrapping="Wrap" Margin="30,0,20,0"
+                    Text="Java 版 (MC 26.2) - mysticnetwork.top" />
+        <TextBlock TextWrapping="Wrap" Margin="0,10,20,0"
+                    Text="白名单申请 / 玩家交流QQ群: 793789863" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,20,5"
+                    Text="服务器官网：mysticnetwork.top" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="公告 2026/8/4" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="我们发现了一个会让部分玩家无法访问 Mystic Network 的问题。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="问题的原因可能是因为域名的 SRV 解析爆炸了，导致 Minecraft 无法正常地解析 Mystic Network 的域名地址。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="解决方法就是使用如下的域名加入服务器：" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="hub.mysticnetwork.top:9178" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="当然，我们也非常希望能完全解决个别玩家所遇到的 SRV 解析问题。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="可如果我们停用了 SRV 解析，会出现两个很明显的问题：" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="1 - 自动化程序会疯狂地、无差别地扫描暴露在公网的 Minecraft 服务器端口；" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="2 - 官网的 Web 服务与 Minecraft 服务运行在不同的服务器上。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="考虑到遇到 SRV 解析问题的玩家一般为少数群体；" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="而且如果要停用 SRV 解析的话，我们的官网 Web 服务与 Minecraft 服务将会使用不同的子域名，这显然是一个很麻烦且不必要的做法。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="所以为了保证大部分玩家的体验，我们会继续使用 SRV 解析，感谢各位的理解。" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="公告 2026/7/31" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="Mystic Network 已更换了服务器提供商。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="对比之前租的 VPS 面板服（4核8G），这次使用的服务器配置（2核4G）比较低。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="不仅如此，4GB内存的基础上还要有操作系统的占用，不像面板服一样可以让服务端独享8GB内存。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="所以说，这次的体验相对来说会比之前租的面板服差一点，这是无法避免的。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="如果大家在游玩过程中遇到了不同步、卡顿、掉线等情况，还请大家耐心一点，这说明服务器真的燃尽了。🙏" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="当然，如果经费充足的话，我们也很乐意重新订阅来自前服务商的服务器。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="只可惜，对于一个完全公益的 Minecraft 服务器来说，这也许会比较困难。从服务器创立三年至今，没有一分钱进入了我们的口袋。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="总之，还是感谢大家对 Mystic Network 长久以来的支持！各位的支持就是支撑我们做下去的动力。" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="公告 2026/7/31" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="⚠ 通知 ⚠" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="由于 Mystic Network 服务器在建设期间遇到了一些问题，因此我们移除了 Mystic Network 对 Minecraft Bedrock Edition 的支持。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="我们对造成的不便感到抱歉。 Orz" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="公告 2026/7/12" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="嗨！各位 Mystic Network 玩家们：" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="我们很激动地宣布： Mystic Network 服务器版本将会更新至 Minecraft 26.2." />
+                <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="由于服务器的版本更新, Mystic Client 的 Minecraft 版本也会同步更新至26.2." />
+                <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="当服务器版本更新后，您需要使用 Minecraft 26.2 才能游玩 Mystic Network." />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="公告 2026/6/10" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="嗨！各位 Mystic Network 玩家们：" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="Mystic Network 将在六月中旬复活。（吧唧吧唧吧唧）" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="可由于 Mystic Network 的旧存档全部棍母，所以这将会是一次新周目，我们对造成的不便感到十分抱歉！" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="在 Mystic Network 复活的同时，我们也会发布新的 Mystic Client ，敬请期待。" />
+    </StackPanel>
+</local:MyCard>
+
+
+
+
+    </StackPanel>
+        </TabItem>
+        <TabItem Header="关于" Style="{StaticResource TabItemStyle}">
+            <StackPanel>
+<local:MyCard Title="关于 Mystic Client" Margin="0,0,0,15" CanSwap="False" IsSwapped="False">
+    <StackPanel Margin="25,40,23,0">
+            <local:MyHint Margin="0,8,0,2" Theme="Blue"
+                    Text="ⓘ  版本" />
+    <local:MyListItem  Margin="-5,2,-5,8"
+                    Logo="https://foruda.gitee.com/avatar/1781944589350697705/16581089_decayedzephyr_1781944589.png"
+                    EventType="打开网页" Title="Mystic Client" Info="v3 (public-release)" EventData="https://github.com/Mystic-MCNetwork/MysticSDK" Type="Clickable"/>
+            <local:MyHint Margin="0,8,0,2" Theme="Blue"
+                    Text="⛏️ 开发" />
+    <local:MyListItem  Margin="-5,2,-5,8"
+                    Logo="https://avatars.githubusercontent.com/u/281296832?v=4" Title="兔瓮" Info="https://github.com/rabvat"
+                    EventType="打开网页" EventData="https://github.com/rabvat" Type="Clickable" />
+    <local:MyListItem  Margin="-5,2,-5,8"
+                    Logo="https://avatars.githubusercontent.com/u/290938741?v=4" Title="日暑节" Info="https://github.com/lcddsb"
+                    EventType="打开网页" EventData="https://github.com/lcddsb" Type="Clickable" />
+                <local:MyHint Margin="0,8,0,2" Theme="Blue"
+                    Text="🔈  呜谢" />
+    <local:MyListItem  Margin="-5,2,-5,8"
+                    Logo="https://pic1.afdiancdn.com/user/df2dfad2960911e89c5252540025c377/avatar/31c78ee63d5dce8ac4848c837fb04204_w160_h160_s35.jpg?imageView2/1/w/120/h/120" Title="龙腾猫跃" Info="PCL2 开发者"
+                    EventType="打开网页" EventData="https://www.ifdian.net/a/LTCat" Type="Clickable" />
+    <local:MyListItem  Margin="-5,2,-5,8"
+                    Logo="https://avatars.githubusercontent.com/u/162774918?v=4" Title="Zhengyuan Huang" Info="Magazine-Homepage-PCL 开发者"
+                    EventType="打开网页" EventData="https://github.com/Neclyon" Type="Clickable" />
+    <local:MyListItem  Margin="-5,2,-5,8"
+                    Logo="https://github.com/Mystic-MCNetwork/MysticRCS/releases/download/githubcat/GitHub_Invertocat_Black.png" Title="Github" Info="Mystic Client 网络服务提供商"
+                    EventType="打开网页" EventData="https://github.com" Type="Clickable" />
+                <local:MyHint Margin="0,8,0,2" Theme="Blue"
+                    Text="📕  说明" />
+                            <TextBlock TextWrapping="Wrap" Margin="20,5,20,10"
+                    Text="MysticRCS、MysticSDK 均已在 Github 以 Apache 2.0 协议开源。" />
+    </StackPanel>
+</local:MyCard>
+    </StackPanel>
+        </TabItem>
+    </TabControl>
+</StackPanel>
