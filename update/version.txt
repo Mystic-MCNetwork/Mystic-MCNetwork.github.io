@@ -1,1 +1,1 @@
-[lastest=v3-beta]
+[lastest=v3]
