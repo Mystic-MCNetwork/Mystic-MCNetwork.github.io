@@ -1,1 +1,1 @@
-https://gitee.com/decayedzephyr/mystic-cloud/releases/download/v3-public/v3-public.exe
+https://gitee.com/decayedzephyr/mystic-client/releases/latest
