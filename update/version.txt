@@ -1,1 +1,1 @@
-[lastest=v3.0.1]
+[lastest=v3.0.2]
