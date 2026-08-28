@@ -257,7 +257,7 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
         <TextBlock TextWrapping="Wrap" Margin="0,10,20,0"
                     Text="白名单申请 / 玩家交流QQ群: 793789863" />
         <TextBlock TextWrapping="Wrap" Margin="0,0,20,5"
-                    Text="服务器官网：www.mysticnetwork.top" />
+                    Text="服务器官网：mysticnetwork.top" />
     </StackPanel>
 </local:MyCard>
 
