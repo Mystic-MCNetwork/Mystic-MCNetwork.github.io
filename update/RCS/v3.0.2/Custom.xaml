@@ -247,11 +247,57 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
         <TextBlock TextWrapping="Wrap" Margin="25,5,20,0"
                     Text="服务器地址如下：" />
         <TextBlock TextWrapping="Wrap" Margin="30,0,20,0"
-                    Text="Java 版 (MC 26.2) - mysticnetwork.top" />
+                    Text="Java 纯净服 - mysticnetwork.top" />
+        <TextBlock TextWrapping="Wrap" Margin="30,0,20,0"
+                    Text="(MC 26.2)" />
+        <TextBlock TextWrapping="Wrap" Margin="30,0,20,0"
+                    Text="机械动力 模组服 - create.mysticnetwork.top" />
+        <TextBlock TextWrapping="Wrap" Margin="30,0,20,0"
+                    Text="(MC 1.21.1 NeoForge)" />
         <TextBlock TextWrapping="Wrap" Margin="0,10,20,0"
                     Text="白名单申请 / 玩家交流QQ群: 793789863" />
         <TextBlock TextWrapping="Wrap" Margin="0,0,20,5"
-                    Text="服务器官网：mysticnetwork.top" />
+                    Text="服务器官网：www.mysticnetwork.top" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="公告 2026/8/28" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="我们收到了部分玩家想要游玩 机械动力 模组的请求。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="但由于各种原因，我们只能建设一个新的服务器，以此来为大家提供模组服务。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="因此，新的模组服务器的玩家数据和存档数据与 Mystic Network 并不互通，希望大家理解。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="Mystic Create 游玩须知：" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="1 - Mystic Create 仅作为对模组服务器可能性的评估，其随时可能下线并停止服务；" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="2 - 由于某种原因，我们无法添加白名单机制，服务器可能会因此受到不知名玩家的攻击；（“攻击”包括且不限于 摧毁他人建筑、DDoS服务器等）" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="3 - 对比 Mystic Network，Mystic Create 的功能性指令会减少许多；" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="4 - 我们会尽力在不同的模组加载器以及不同的游戏版本中，打造一致的游戏整合包体验。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="Mystic Create 服务器地址 - create.mysticnetwork.top" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="Minecraft 版本 1.21.1 (NeoForge)" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="公告 2026/8/28" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="Mystic Network 现已更换更好的服务器提供商。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="本次服务器迁移非常顺利。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="在迁移后的一天中，我们收到了部分玩家的反馈，其都认为服务器的性能有着显著的提升。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="作为 Mystic Network 的管理员，我们也会一直尽力地为玩家们提供更好的游戏体验。" />
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="服务器的每次改进，都离不开大家的支持，谢谢大家。" />
     </StackPanel>
 </local:MyCard>
 
@@ -262,9 +308,9 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
                     Text="问题的原因可能是因为域名的 SRV 解析爆炸了，导致 Minecraft 无法正常地解析 Mystic Network 的域名地址。" />
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
-                    Text="解决方法就是使用如下的域名加入服务器：" />
+                    Text="解决方法就是使用如下的地址加入服务器：" />
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
-                    Text="hub.mysticnetwork.top:9178" />
+                    Text="mystic.9666.fun:26080" />
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
                     Text="当然，我们也非常希望能完全解决个别玩家所遇到的 SRV 解析问题。" />
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
