@@ -257,6 +257,13 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
     </StackPanel>
 </local:MyCard>
 
+<local:MyCard Title="公告 2026/10/1" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
+                    Text="Mystic Create 已关闭，勿念。" />
+    </StackPanel>
+</local:MyCard>
+
 <local:MyCard Title="公告 2026/8/28" Margin="0,0,0,15" CanSwap="true" IsSwapped="false">
     <StackPanel Margin="25,40,23,15">
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
