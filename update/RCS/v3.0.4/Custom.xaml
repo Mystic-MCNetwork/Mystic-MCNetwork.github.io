@@ -247,7 +247,7 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
         <TextBlock TextWrapping="Wrap" Margin="25,5,20,0"
                     Text="服务器地址如下：" />
         <TextBlock TextWrapping="Wrap" Margin="30,0,20,0"
-                    Text="Java 纯净服 - mysticnetwork.top" />
+                    Text="Java 纯净服 - myst.pw" />
         <TextBlock TextWrapping="Wrap" Margin="30,0,20,0"
                     Text="(MC 26.2)" />
         <TextBlock TextWrapping="Wrap" Margin="0,10,20,0"
