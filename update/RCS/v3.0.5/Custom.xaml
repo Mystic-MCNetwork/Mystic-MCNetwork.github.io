@@ -402,7 +402,7 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
                     Text="ⓘ  版本" />
     <local:MyListItem  Margin="-5,2,-5,8"
                     Logo="https://foruda.gitee.com/avatar/1781944589350697705/16581089_decayedzephyr_1781944589.png"
-                    EventType="打开网页" Title="Mystic Client" Info="Bundle: v3.0.5 / Launcher: v2.14.0.0" EventData="https://github.com/Mystic-MCNetwork/MysticSDK" Type="Clickable"/>
+                    EventType="打开网页" Title="Mystic Client" Info="Bundle: v3.0.5 / Launcher: v2.14.0.0" EventData="https://github.com/Mystic-MCNetwork/MysticBundle" Type="Clickable"/>
             <local:MyHint Margin="0,8,0,2" Theme="Blue"
                     Text="⛏️ 开发" />
     <local:MyListItem  Margin="-5,2,-5,8"
