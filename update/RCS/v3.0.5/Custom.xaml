@@ -346,7 +346,7 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
                     Text="当然，如果经费充足的话，我们也很乐意重新订阅来自前服务商的服务器。" />
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
-                    Text="只可惜，对于一个完全公益的 Minecraft 服务器来说，这也许会比较困难。从服务器创立三年至今，没有一分钱进入了我们的口袋。" />
+                    Text="只可惜，对于一个完全公益的 Minecraft 服务器来说，这也许会比较困难。从服务器创立四年至今，没有一分钱进入了我们的口袋。" />
         <TextBlock TextWrapping="Wrap" Margin="20,5,20,5"
                     Text="总之，还是感谢大家对 Mystic Network 长久以来的支持！各位的支持就是支撑我们做下去的动力。" />
     </StackPanel>
