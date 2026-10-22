@@ -414,7 +414,7 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
                 <local:MyHint Margin="0,8,0,2" Theme="Blue"
                     Text="🔈  呜谢" />
     <local:MyListItem  Margin="-5,2,-5,8"
-                    Logo="https://pic1.afdiancdn.com/user/df2dfad2960911e89c5252540025c377/avatar/31c78ee63d5dce8ac4848c837fb04204_w160_h160_s35.jpg?imageView2/1/w/120/h/120" Title="龙腾猫跃" Info="PCL2 开发者"
+                    Logo="https://pic1.afdiancdn.com/user/df2dfad2960911e89c5252540025c377/avatar/31c78ee63d5dce8ac4848c837fb04204_w160_h160_s35.jpg?imageView2/1/w/120/h/120" Title="龙腾猫跃" Info="Plain Craft Launcher 2 开发者"
                     EventType="打开网页" EventData="https://www.ifdian.net/a/LTCat" Type="Clickable" />
     <local:MyListItem  Margin="-5,2,-5,8"
                     Logo="https://avatars.githubusercontent.com/u/162774918?v=4" Title="Zhengyuan Huang" Info="Magazine-Homepage-PCL 开发者"
