@@ -425,7 +425,9 @@ xmlns:local="clr-namespace:PCL;assembly=Plain Craft Launcher 2">
                 <local:MyHint Margin="0,8,0,2" Theme="Blue"
                     Text="📕  说明" />
                             <TextBlock TextWrapping="Wrap" Margin="20,5,20,10"
-                    Text="MysticRCS、MysticSDK 均已在 Github 以 Apache 2.0 协议开源。" />
+                    Text="MysticRCS、MysticBundle 均已在 Github 以 Apache 2.0 协议开源。" />
+                            <TextBlock TextWrapping="Wrap" Margin="20,5,20,10"
+                    Text="https://mysticnetwork.top/open-source-projects" />
     </StackPanel>
 </local:MyCard>
     </StackPanel>
